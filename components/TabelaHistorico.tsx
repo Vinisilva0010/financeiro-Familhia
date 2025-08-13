@@ -171,8 +171,8 @@ export default function TabelaHistorico({ transacoes, onRemoverTransacao }: Tabe
                 className="input-field"
               >
                 <option value="todos">Todos</option>
-                <option value="mae">Mãe</option>
-                <option value="irmao">Irmão</option>
+                <option value="mae">Maria</option>
+                <option value="irmao">Jonatas</option>
               </select>
             </div>
           </div>

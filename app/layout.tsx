@@ -98,7 +98,7 @@ export default function RootLayout({
           <footer className="bg-white border-t border-gray-200 py-4">
             <div className="max-w-4xl mx-auto px-4 text-center">
               <p className="text-sm text-gray-500">
-                © 2024 Controle Financeiro Familiar - Dados salvos localmente
+                © 2025 Controle Financeiro Familiar - desenvedor: Vinicius da silva pontual
               </p>
             </div>
           </footer>

@@ -90,8 +90,8 @@ export default function GraficosFinanceiros({ transacoes }: GraficosFinanceirosP
       .reduce((acc, t) => acc + (t.tipo === 'entrada' ? t.valor : -t.valor), 0);
 
     return [
-      { name: 'Mãe', value: Math.abs(totalMae), fill: '#3B82F6' },
-      { name: 'Irmão', value: Math.abs(totalIrmao), fill: '#EF4444' },
+      { name: 'Maria', value: Math.abs(totalMae), fill: '#3B82F6' },
+      { name: 'Jonatas', value: Math.abs(totalIrmao), fill: '#EF4444' },
     ].filter(item => item.value > 0);
   }, [transacoes]);
 
@@ -204,25 +204,25 @@ export default function GraficosFinanceiros({ transacoes }: GraficosFinanceirosP
                   <Legend />
                   <Bar 
                     dataKey="maeEntradas" 
-                    name="Mãe - Entradas" 
+                    name="Maria - Entradas" 
                     fill="#10B981" 
                     radius={[4, 4, 0, 0]}
                   />
                   <Bar 
                     dataKey="maeSaidas" 
-                    name="Mãe - Saídas" 
+                    name="Maria - Saídas" 
                     fill="#EF4444" 
                     radius={[4, 4, 0, 0]}
                   />
                   <Bar 
                     dataKey="irmaoEntradas" 
-                    name="Irmão - Entradas" 
+                    name="Jonatas - Entradas" 
                     fill="#3B82F6" 
                     radius={[4, 4, 0, 0]}
                   />
                   <Bar 
                     dataKey="irmaoSaidas" 
-                    name="Irmão - Saídas" 
+                    name="Jonatas - Saídas" 
                     fill="#F59E0B" 
                     radius={[4, 4, 0, 0]}
                   />
@@ -262,7 +262,7 @@ export default function GraficosFinanceiros({ transacoes }: GraficosFinanceirosP
                     dataKey="maeEntradas" 
                     stroke="#10B981" 
                     strokeWidth={3}
-                    name="Mãe - Entradas"
+                    name="Maria - Entradas"
                     dot={{ fill: '#10B981', strokeWidth: 2, r: 4 }}
                   />
                   <Line 
@@ -270,7 +270,7 @@ export default function GraficosFinanceiros({ transacoes }: GraficosFinanceirosP
                     dataKey="irmaoEntradas" 
                     stroke="#3B82F6" 
                     strokeWidth={3}
-                    name="Irmão - Entradas"
+                    name="Jonatas - Entradas"
                     dot={{ fill: '#3B82F6', strokeWidth: 2, r: 4 }}
                   />
                 </LineChart>
@@ -321,7 +321,7 @@ export default function GraficosFinanceiros({ transacoes }: GraficosFinanceirosP
             <div className="bg-green-50 rounded-lg p-4 border border-green-200">
               <div className="flex items-center space-x-2 mb-2">
                 <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                <span className="text-sm font-medium text-green-800">Mãe - Entradas</span>
+                <span className="text-sm font-medium text-green-800">Maria - Entradas</span>
               </div>
               <p className="text-lg font-bold text-green-600">
                 {formatarMoeda(ultimoMes.maeEntradas)}
@@ -332,7 +332,7 @@ export default function GraficosFinanceiros({ transacoes }: GraficosFinanceirosP
             <div className="bg-red-50 rounded-lg p-4 border border-red-200">
               <div className="flex items-center space-x-2 mb-2">
                 <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                <span className="text-sm font-medium text-red-800">Mãe - Saídas</span>
+                <span className="text-sm font-medium text-red-800">Maria - Saídas</span>
               </div>
               <p className="text-lg font-bold text-red-600">
                 {formatarMoeda(ultimoMes.maeSaidas)}
@@ -343,7 +343,7 @@ export default function GraficosFinanceiros({ transacoes }: GraficosFinanceirosP
             <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
               <div className="flex items-center space-x-2 mb-2">
                 <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-                <span className="text-sm font-medium text-blue-800">Irmão - Entradas</span>
+                <span className="text-sm font-medium text-blue-800">Jonatas - Entradas</span>
               </div>
               <p className="text-lg font-bold text-blue-600">
                 {formatarMoeda(ultimoMes.irmaoEntradas)}
@@ -354,7 +354,7 @@ export default function GraficosFinanceiros({ transacoes }: GraficosFinanceirosP
             <div className="bg-yellow-50 rounded-lg p-4 border border-yellow-200">
               <div className="flex items-center space-x-2 mb-2">
                 <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                <span className="text-sm font-medium text-yellow-800">Irmão - Saídas</span>
+                <span className="text-sm font-medium text-yellow-800">Jonatas - Saídas</span>
               </div>
               <p className="text-lg font-bold text-yellow-600">
                 {formatarMoeda(ultimoMes.irmaoSaidas)}

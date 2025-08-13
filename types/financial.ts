@@ -44,8 +44,8 @@ export interface LocalStorageData {
 
 // Labels para exibição
 export const LABELS_PESSOA: Record<Pessoa, string> = {
-  mae: 'Mãe',
-  irmao: 'Irmão'
+  mae: 'Maria',
+  irmao: 'Jonatas'
 };
 
 export const LABELS_TIPO: Record<TipoTransacao, string> = {
