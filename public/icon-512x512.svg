@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0284c7;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="512" height="512" rx="102.4" fill="url(#bg)"/>
+  
+  <!-- Dollar sign icon -->
+  <g transform="translate(128, 102.4)">
+    <path d="M128 51.2v256M128 51.2c40.96 0 76.8 15.36 76.8 40.96s-35.84 40.96-76.8 40.96H76.8c-40.96 0-76.8 15.36-76.8 40.96s35.84 40.96 76.8 40.96h51.2m0 102.4H76.8c-40.96 0-76.8-15.36-76.8-40.96s35.84-40.96 76.8-40.96h102.4c40.96 0 76.8-15.36 76.8-40.96s-35.84-40.96-76.8-40.96" 
+          stroke="white" 
+          stroke-width="15.36" 
+          fill="none" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"/>
+  </g>
+  
+  <!-- Family icon -->
+  <g transform="translate(76.8, 332.8)">
+    <!-- Person 1 -->
+    <circle cx="40.96" cy="20.48" r="12.8" fill="white"/>
+    <rect x="33.28" y="35.84" width="15.36" height="40.96" rx="2.56" fill="white"/>
+    
+    <!-- Person 2 -->
+    <circle cx="102.4" cy="20.48" r="12.8" fill="white"/>
+    <rect x="94.72" y="35.84" width="15.36" height="40.96" rx="2.56" fill="white"/>
+    
+    <!-- Heart between them -->
+    <path d="M66.56 46.08c0-5.12 5.12-10.24 7.68-10.24s7.68 5.12 7.68 10.24c0-5.12 5.12-10.24 7.68-10.24s7.68 5.12 7.68 10.24l-15.36 15.36z" 
+          fill="white" opacity="0.8"/>
+  </g>
+</svg>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Ícones PWA</title>
+</head>
+<body>
+    <h1>Gerador de Ícones PWA</h1>
+    <p>Este arquivo cria os ícones necessários para o PWA. Abra este arquivo no navegador e use o console para gerar os ícones.</p>
+    
+    <canvas id="canvas192" width="192" height="192" style="border: 1px solid #ccc; margin: 10px;"></canvas>
+    <canvas id="canvas512" width="512" height="512" style="border: 1px solid #ccc; margin: 10px;"></canvas>
+    
+    <script>
+        function createIcon(canvas, size) {
+            const ctx = canvas.getContext('2d');
+            
+            // Background gradient
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#0ea5e9');
+            gradient.addColorStop(1, '#0284c7');
+            
+            // Draw background with rounded corners
+            ctx.fillStyle = gradient;
+            ctx.roundRect(0, 0, size, size, size * 0.2);
+            ctx.fill();
+            
+            // Draw dollar sign
+            ctx.strokeStyle = 'white';
+            ctx.lineWidth = size * 0.03;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+            
+            const centerX = size / 2;
+            const centerY = size / 2;
+            const radius = size * 0.15;
+            
+            // Vertical line of $
+            ctx.beginPath();
+            ctx.moveTo(centerX, centerY - radius * 1.2);
+            ctx.lineTo(centerX, centerY + radius * 1.2);
+            ctx.stroke();
+            
+            // S shape
+            ctx.beginPath();
+            ctx.arc(centerX - radius * 0.3, centerY - radius * 0.5, radius * 0.5, 0, Math.PI, false);
+            ctx.arc(centerX + radius * 0.3, centerY + radius * 0.5, radius * 0.5, Math.PI, 0, false);
+            ctx.stroke();
+            
+            // Family icons
+            const familyY = size * 0.75;
+            const personSize = size * 0.03;
+            
+            // Person 1
+            ctx.fillStyle = 'white';
+            ctx.beginPath();
+            ctx.arc(centerX - size * 0.1, familyY - personSize, personSize, 0, 2 * Math.PI);
+            ctx.fill();
+            ctx.fillRect(centerX - size * 0.1 - personSize/2, familyY, personSize, personSize * 1.5);
+            
+            // Person 2
+            ctx.beginPath();
+            ctx.arc(centerX + size * 0.1, familyY - personSize, personSize, 0, 2 * Math.PI);
+            ctx.fill();
+            ctx.fillRect(centerX + size * 0.1 - personSize/2, familyY, personSize, personSize * 1.5);
+            
+            // Heart
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+            const heartSize = size * 0.02;
+            ctx.beginPath();
+            ctx.moveTo(centerX, familyY);
+            ctx.bezierCurveTo(centerX - heartSize, familyY - heartSize, centerX - heartSize * 2, familyY, centerX, familyY + heartSize);
+            ctx.bezierCurveTo(centerX + heartSize * 2, familyY, centerX + heartSize, familyY - heartSize, centerX, familyY);
+            ctx.fill();
+        }
+        
+        // Add roundRect method if not available
+        if (!CanvasRenderingContext2D.prototype.roundRect) {
+            CanvasRenderingContext2D.prototype.roundRect = function(x, y, width, height, radius) {
+                this.beginPath();
+                this.moveTo(x + radius, y);
+                this.lineTo(x + width - radius, y);
+                this.quadraticCurveTo(x + width, y, x + width, y + radius);
+                this.lineTo(x + width, y + height - radius);
+                this.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+                this.lineTo(x + radius, y + height);
+                this.quadraticCurveTo(x, y + height, x, y + height - radius);
+                this.lineTo(x, y + radius);
+                this.quadraticCurveTo(x, y, x + radius, y);
+                this.closePath();
+            };
+        }
+        
+        // Create icons
+        const canvas192 = document.getElementById('canvas192');
+        const canvas512 = document.getElementById('canvas512');
+        
+        createIcon(canvas192, 192);
+        createIcon(canvas512, 512);
+        
+        // Function to download canvas as PNG
+        function downloadIcon(canvas, filename) {
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+        
+        // Add download buttons
+        const button192 = document.createElement('button');
+        button192.textContent = 'Baixar 192x192';
+        button192.onclick = () => downloadIcon(canvas192, 'icon-192x192.png');
+        document.body.appendChild(button192);
+        
+        const button512 = document.createElement('button');
+        button512.textContent = 'Baixar 512x512';
+        button512.onclick = () => downloadIcon(canvas512, 'icon-512x512.png');
+        document.body.appendChild(button512);
+        
+        console.log('Ícones criados! Use os botões para baixar ou execute:');
+        console.log('downloadIcon(canvas192, "icon-192x192.png")');
+        console.log('downloadIcon(canvas512, "icon-512x512.png")');
+    </script>
+</body>
+</html>
